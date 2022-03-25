@@ -49,3 +49,7 @@ group :test do
 end
 
 gem "active_model_serializers", "~> 0.10.12"
+
+# Randomized seed data
+# https://github.com/faker-ruby/faker
+gem "faker", "2.19"
