@@ -11,3 +11,28 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+#question-and-response {
+  margin: 10px 0;
+  border: solid 1px #000;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* max-width: 200px; */
+}
+
+#question {
+  margin: 10px 0;
+  border: solid 1px #000;
+}
+
+#answer-response {
+  margin: 10px 0;
+  border: solid 1px #000;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
