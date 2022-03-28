@@ -1,5 +1,5 @@
 class UserAnswerSerializer < ActiveModel::Serializer
-  attributes :id, :answer, :user_id, :question_id
+  attributes :id, :answer
   
   has_one :user
   has_one :question
