@@ -1,9 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import moment from 'moment';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 function Homepage() {
+  const [errorFound, setErrorFound] = useState(200);
   const [questionObject, setQuestionObject] = useState({});
-  
+  const [questionDate, setQuestionDate] = useState(new Date());
+
   function answerReponse() {
     const answerChoices = questionObject.answer_choices;
     if (answerChoices !== undefined) {
@@ -36,29 +41,50 @@ function Homepage() {
 
   useEffect(() => {
     getData();
-  },[])
+  },[questionDate])
 
   async function getData() {
-    const todayDate = new Date().toISOString().slice(0, 10);
-    const fetchTodaysQuestionURL = "/questions/" + todayDate;
-
-    const res = await axios(fetchTodaysQuestionURL);
-    
-    const todayQuestionObject = await res.data;
-    setQuestionObject(todayQuestionObject);
+    try {
+      const fetchQuestionURL = "/questions/" + questionDate.toISOString().slice(0, 10);
+      const res = await axios.get(fetchQuestionURL);
+      const todayQuestionObject = await res.data;
+      setQuestionObject(todayQuestionObject);
+      setErrorFound(200);
+    } catch (e) {
+      setErrorFound(e.response.status);
+    }
   };
 
-  return (
-    <div className="homepage-container">
-      <div id="question-and-response" className="question-answer-box">
-        <div id="question">Question: {questionObject.question}</div>
-        
-        { answerReponse() }
+  function questionAnswerErrorCheck() {
 
+    if (errorFound === 200) {
+      return (
+        <>
+          <div id="question">Question: {questionObject.question}</div> 
+          { answerReponse() }
+        </>
+      )
+    } else {
+      return (
+        <div id="no-question-found">
+          No Question Found. Please Select a New Date!
+        </div>
+      )
+    }
+  }
+
+  return (
+    <div id="homepage-container">
+      
+      <div id="question-and-response" className="question-answer-box">
+        { questionAnswerErrorCheck() }
       </div>
-      <div className="date-picker">
-        
+      
+      <div id="date-picker">
+        Select Question Date:
+        <DatePicker selected={questionDate} onChange={(date) => setQuestionDate(date)} maxDate={moment().toDate()} />
       </div>
+
     </div>
   )
 }
