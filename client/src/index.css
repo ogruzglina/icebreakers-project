@@ -12,6 +12,14 @@ code {
     monospace;
 }
 
+#homepage-container {
+  margin: 10px 0;
+  border: solid 1px #000;
+
+  display: flex;
+  justify-content: space-around;
+}
+
 #question-and-response {
   margin: 10px 0;
   border: solid 1px #000;
@@ -24,7 +32,7 @@ code {
 }
 
 #question {
-  margin: 10px 0;
+  /* margin: 10px 0; */
   border: solid 1px #000;
 }
 
@@ -34,5 +42,12 @@ code {
 
   display: flex;
   align-items: center;
+  flex-direction: column;
+}
+
+#date-picker {
+  margin: 10px 0;
+  display: flex;
+  align-self: start;
   flex-direction: column;
 }
