@@ -49,8 +49,6 @@ function Homepage() {
     
     const todayQuestionObject = await res.data;
     setQuestionObject(todayQuestionObject);
-
-    console.log('hi')
   };
 
   return (
