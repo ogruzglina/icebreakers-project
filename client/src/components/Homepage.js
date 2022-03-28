@@ -5,6 +5,7 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
 function Homepage() {
+  const [errorFound, setErrorFound] = useState(200);
   const [questionObject, setQuestionObject] = useState({});
   const [questionDate, setQuestionDate] = useState(new Date());
 
@@ -43,22 +44,40 @@ function Homepage() {
   },[questionDate])
 
   async function getData() {
-    const fetchTodaysQuestionURL = "/questions/" + questionDate.toISOString().slice(0, 10);;
-
-    const res = await axios(fetchTodaysQuestionURL);
-    
-    const todayQuestionObject = await res.data;
-    setQuestionObject(todayQuestionObject);
+    try {
+      const fetchQuestionURL = "/questions/" + questionDate.toISOString().slice(0, 10);
+      const res = await axios.get(fetchQuestionURL);
+      const todayQuestionObject = await res.data;
+      setQuestionObject(todayQuestionObject);
+      setErrorFound(200);
+    } catch (e) {
+      setErrorFound(e.response.status);
+    }
   };
+
+  function questionAnswerErrorCheck() {
+
+    if (errorFound === 200) {
+      return (
+        <>
+          <div id="question">Question: {questionObject.question}</div> 
+          { answerReponse() }
+        </>
+      )
+    } else {
+      return (
+        <div id="no-question-found">
+          No Question Found. Please Select a New Date!
+        </div>
+      )
+    }
+  }
 
   return (
     <div id="homepage-container">
       
       <div id="question-and-response" className="question-answer-box">
-        <div id="question">Question: {questionObject.question}</div>
-        
-        { answerReponse() }
-
+        { questionAnswerErrorCheck() }
       </div>
       
       <div id="date-picker">
