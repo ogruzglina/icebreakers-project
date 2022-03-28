@@ -31,7 +31,7 @@ questions = [
     ["What is your favorite holiday?", nil],
     ["Which super power do you want?", "Mind Reading|Teleportation|Invisibility|Self-Duplication"],
     ["If you were a potato, how you be cooked?", "Mashed|Baked|Boild|Fried"],
-    ["What animal would you be?", "Dog|Cat|Whale|Bird"],
+    ["Which of the following animals would you be?", "Dog|Cat|Whale|Bird"],
     ["What is your favorite flavors of ice cream?", "Vanilla|Chocolate|Coockie Dough|Matcha"],
     ["Would you let aliens beam you up if they came to Earth?", nil],
     ["What’s your caffeinated beverage of choice?", "Coffee|Cola|Tea|Red Bull"],
@@ -76,7 +76,7 @@ all_answers = [
     [6, "Chocolate"],
     [6, "Matcha"],
     [6, "Vanilla"],
-    [6, "Coockie Dough"]
+    [6, "Cookie Dough"]
 ]
    
 n_answers.times do
