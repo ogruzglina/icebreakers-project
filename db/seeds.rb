@@ -55,6 +55,12 @@ all_answers = [
     [1, "Blue"],
     [1, "Yellow"],
     [2, "Thanksgiving"],
+    [2, "Christmas Eve"],
+    [2, "Halloween"],
+    [2, "Easter"],
+    [2, "July 4th"],
+    [2, "New Year"],
+    [2, "Valentine's Day"],
     [3, "Teleportation"],
     [3, "Invisibility"],
     [3, "Mind Reading"],
@@ -81,7 +87,7 @@ n_answers.times do
     if UserAnswer.count == 0 
         UserAnswer.create(answer: answer[1], user_id: user_id, question_id: answer[0], created_at: date)
     else 
-        duplicate = UserAnswer.select {|a| a.user_id = user_id && a.answer == answer[1]}
+        duplicate = UserAnswer.select {|a| a.user_id == user_id && a.question_id == answer[0]}
         duplicate == [] ? UserAnswer.create(answer: answer[1], user_id: user_id, question_id: answer[0], created_at: date) : nil
     end
 end
