@@ -40,8 +40,8 @@ questions = [
 ]
 
 n_questions.times do
-    question = questions.sample
-    questions = questions.select {|q| q != question}
+    question = questions[0]
+    questions = questions.drop(1)
     date = Date.today + i
     i += 1
 

@@ -1,69 +1,36 @@
 import React, { useEffect, useState } from 'react';
+import UserAnswers from './UserAnswers';
+import QuestionAndResponse from './QuestionAndResponse';
 import axios from 'axios';
 import moment from 'moment';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
 function Homepage() {
-  const [errorFound, setErrorFound] = useState(200);
-  const [questionObject, setQuestionObject] = useState({});
-  const [questionDate, setQuestionDate] = useState(new Date());
+  const [ errorFound, setErrorFound ] = useState(200);
+  const [ questionObject, setQuestionObject ] = useState({});
+  const [ questionDate, setQuestionDate ] = useState(new Date());
+  const [ userAnswers, setUserAnswers ] = useState([]);
 
-  function answerReponse() {
-    const answerChoices = questionObject.answer_choices;
-    if (answerChoices !== undefined) {
-      if (answerChoices === null) {
-        return (
-          <form id="answer-response">
-            "Response:"
-            <input type="text" name="response" />
-            <input type="button" onclick="myFunction()" value="Submit Response" />
-          </form>
-        )
-    } else {
-      const answerChoicesArray = answerChoices.split("|");
-
-      // const radioButtons = answerChoicesArray.map(answerChoices => {
-      //   <input type="radio" name="answer-choice" value={answerChoices} /> 
-      // })
-      
-        return (
-          <div>
-            <input type="radio" name="answer-choice" value={answerChoicesArray[0]} /> {answerChoicesArray[0]} <br/>
-            <input type="radio" name="answer-choice" value={answerChoicesArray[1]} /> {answerChoicesArray[1]} <br/>
-            <input type="radio" name="answer-choice" value={answerChoicesArray[2]} /> {answerChoicesArray[2]} <br/>
-            <input type="radio" name="answer-choice" value={answerChoicesArray[3]} /> {answerChoicesArray[3]} <br/>
-          </div>
-        )
-      }
-    }
-  }
-
-  useEffect(() => {
-    getData();
-  },[questionDate])
-
-  async function getData() {
+  useEffect(async () => {
     try {
-      const fetchQuestionURL = "/questions/" + questionDate.toISOString().slice(0, 10);
+      const date = moment(questionDate).format("YYYY-MM-DD");
+      const fetchQuestionURL = "/user_answers/" + date;
       const res = await axios.get(fetchQuestionURL);
-      const todayQuestionObject = await res.data;
-      setQuestionObject(todayQuestionObject);
+      const answers = await res.data;
+
+      setUserAnswers(answers);
+      setQuestionObject(answers[0].question);
       setErrorFound(200);
     } catch (e) {
-      setErrorFound(e.response.status);
+      setErrorFound(e.response);
     }
-  };
+  }, [questionDate]);
 
   function questionAnswerErrorCheck() {
 
     if (errorFound === 200) {
-      return (
-        <>
-          <div id="question">Question: {questionObject.question}</div> 
-          { answerReponse() }
-        </>
-      )
+      return ( <QuestionAndResponse questionObject = { questionObject } /> );
     } else {
       return (
         <div id="no-question-found">
@@ -74,19 +41,25 @@ function Homepage() {
   }
 
   return (
-    <div id="homepage-container">
-      
-      <div id="question-and-response" className="question-answer-box">
-        { questionAnswerErrorCheck() }
-      </div>
-      
-      <div id="date-picker">
-        Select Question Date:
-        <DatePicker selected={questionDate} onChange={(date) => setQuestionDate(date)} maxDate={moment().toDate()} />
+    <div>
+      <div id="homepage-container">
+        <div id="question-and-response" className="question-answer-box">
+          { questionAnswerErrorCheck() }
+        </div>
+        
+        <div id="date-picker">
+          Select Question Date:
+          <DatePicker 
+            selected={ questionDate } 
+            onChange={ e => setQuestionDate(e) } 
+            maxDate={ moment().toDate() } 
+          /> 
+        </div>
       </div>
 
+      <UserAnswers uAnswers = { userAnswers } errorFound = { errorFound }/>
     </div>
-  )
+  );
 }
 
 export default Homepage
