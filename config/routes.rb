@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   
   resources :user_answers, only: [:create]
   get 'user_answers/:question_date', to: 'user_answers#index'
-  get 'questions/:question_date', to: 'questions#show'
   resources :users
   
   # Routing logic: fallback requests for React Router.

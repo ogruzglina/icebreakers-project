@@ -1,6 +1,5 @@
 class UserAnswersController < ApplicationController
     def index 
-        # q_id = Question.question_id(params[:question_date])
         question = Question.find_by!(question_date: params[:question_date])
         answers = UserAnswer.where(question_id: question.id)
         if answers == []
