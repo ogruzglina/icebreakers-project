@@ -16,14 +16,13 @@ function QuestionAndResponse({ questionObject }) {
             } else {
                 const answerChoicesArray = answerChoices.split("|");
                 const radioButtons = answerChoicesArray.map( answerChoice =>
-                    <> 
-                        <input 
-                            key = { answerChoice } 
+                    <div key = { answerChoice }> 
+                        <input  
                             type="radio" 
                             name="answer-choice" 
                             value={ answerChoice } 
                         /> { answerChoice } 
-                    </>
+                    </div>
                 );
                 return <div> { radioButtons } </div> ;
             }
