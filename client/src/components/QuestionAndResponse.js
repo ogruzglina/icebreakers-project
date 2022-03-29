@@ -15,8 +15,9 @@ function QuestionAndResponse({ questionObject }) {
                 )
             } else {
                 const answerChoicesArray = answerChoices.split("|");
+                
                 const radioButtons = answerChoicesArray.map( answerChoice =>
-                    <div key = { answerChoice }> 
+                    <div key = { answerChoice }>                     
                         <input  
                             type="radio" 
                             name="answer-choice" 
@@ -24,7 +25,12 @@ function QuestionAndResponse({ questionObject }) {
                         /> { answerChoice } 
                     </div>
                 );
-                return <div> { radioButtons } </div> ;
+                return (
+                    <form > 
+                        { radioButtons } 
+                        <input type="button" onclick="myFunction()" value="Submit Response" />
+                    </form>
+                );
             }
         }
     }
