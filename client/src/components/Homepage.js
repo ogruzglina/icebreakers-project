@@ -18,17 +18,20 @@ function Homepage() {
       const fetchQuestionURL = "/user_answers/" + date;
       const res = await axios.get(fetchQuestionURL);
       const answers = await res.data;
-
-      setUserAnswers(answers);
-      setQuestionObject(answers[0].question);
-      setErrorFound(200);
+      if (answers[0] == undefined) {
+        setQuestionObject(answers);
+        setUserAnswers([]);
+      } else {
+        setUserAnswers(answers);
+        setQuestionObject(answers[0].question);
+        setErrorFound(200);
+      }
     } catch (e) {
       setErrorFound(e.response);
     }
   }, [questionDate]);
 
   function questionAnswerErrorCheck() {
-
     if (errorFound === 200) {
       return ( <QuestionAndResponse questionObject = { questionObject } /> );
     } else {
