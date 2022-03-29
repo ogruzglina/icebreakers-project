@@ -51,9 +51,6 @@ end
 n_answers = 20
 all_answers = [
     [1, "Green"],
-    [1, "Black"],
-    [1, "Blue"],
-    [1, "Yellow"],
     [2, "Thanksgiving"],
     [2, "Christmas Eve"],
     [2, "Halloween"],
