@@ -16,7 +16,7 @@ n_users.times do
     last_name = Faker::Name.last_name
     username = name.first.downcase + last_name.downcase
     password = Faker::Internet.password(min_length: 6, max_length: 8, mix_case: true, special_characters: true)
-    picture = ["https://randomuser.me/api/portraits/thumb/#{ gender }/#{ rand(1..70) }.jpg", nil].sample
+    picture = ["https://randomuser.me/api/portraits/thumb/#{ gender }/#{ rand(1..70) }.jpg", "https://media.istockphoto.com/vectors/default-profile-picture-avatar-photo-placeholder-vector-illustration-vector-id1223671392?k=20&m=1223671392&s=612x612&w=0&h=lGpj2vWAI3WUT1JeJWm1PRoHT3V15_1pdcTn2szdwQ0="].sample
     address = "#{Faker::Address.city}, #{Faker::Address.country}"
     bd = Faker::Date.birthday(min_age: 18, max_age: 70)
     email = username + "@" + domains.sample
