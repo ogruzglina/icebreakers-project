@@ -32,7 +32,7 @@ questions = [
     ["Which super power do you want?", "Mind Reading|Teleportation|Invisibility|Self-Duplication"],
     ["If you were a potato, how you be cooked?", "Mashed|Baked|Boild|Fried"],
     ["Which of the following animals would you be?", "Dog|Cat|Whale|Bird"],
-    ["What is your favorite flavors of ice cream?", "Vanilla|Chocolate|Coockie Dough|Matcha"],
+    ["What is your favorite flavors of ice cream?", "Vanilla|Chocolate|Cookie Dough|Matcha"],
     ["Would you let aliens beam you up if they came to Earth?", nil],
     ["What’s your caffeinated beverage of choice?", "Coffee|Cola|Tea|Red Bull"],
     ["What is your favorite month and why?", nil],
