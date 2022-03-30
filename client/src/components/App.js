@@ -13,11 +13,11 @@ function App() {
     fetch("/auth")
     .then(res => {
       if (res.ok) {
-        res.json().then(user => setCurrentUser(user))
+        res.json().then(user => setCurrentUser(user));
       }
     })
   }, []);
-
+  
   if(!currentUser) return <Login onLogin={setCurrentUser} />
 
   return (
@@ -29,7 +29,7 @@ function App() {
             <Profile currentUser={currentUser} />
           </Route>
           <Route exact path="/">
-            <Homepage />
+            <Homepage currentUser = { currentUser }/>
           </Route>
         </Switch>
       </main>

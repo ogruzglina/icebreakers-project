@@ -6,14 +6,13 @@ import moment from 'moment';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
-function Homepage() {
+function Homepage({ currentUser }) {
   const [ errorFound, setErrorFound ] = useState(200);
   const [ questionObject, setQuestionObject ] = useState({});
   const [ questionDate, setQuestionDate ] = useState(new Date());
   const [ userAnswers, setUserAnswers ] = useState([]);
   const [ hasAnswered, setHasAnswered ] = useState(false);
   const [ minDate, setMinDate ] = useState(new Date())
-  const userId = 5;
 
   useEffect(async () => {
     try {
@@ -28,7 +27,7 @@ function Homepage() {
         setHasAnswered(false);
       } else {
         let userIds = answers.map( answer => answer.user.id);
-        userIds.includes(userId) ? setHasAnswered(true) : setHasAnswered(false); 
+        userIds.includes(currentUser) ? setHasAnswered(true) : setHasAnswered(false); 
 
         setUserAnswers(answers);
         setQuestionObject(answers[0].question);
@@ -59,7 +58,7 @@ function Homepage() {
           onAddAnswer = { handleAddAnswer } 
           hasAnswered = { hasAnswered }
           setHasAnswered = { setHasAnswered } 
-          userId = { userId } 
+          userId = { currentUser.id } 
         /> );
     } else {
       return (
