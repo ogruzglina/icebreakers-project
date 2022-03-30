@@ -11,8 +11,8 @@ function Homepage() {
   const [ questionObject, setQuestionObject ] = useState({});
   const [ questionDate, setQuestionDate ] = useState(new Date());
   const [ userAnswers, setUserAnswers ] = useState([]);
-  const [ isAnswered, setIsAnswered ] = useState(false);
-  const userId = 7;
+  const [ hasAnswered, setHasAnswered ] = useState(false);
+  const userId = 5;
 
   useEffect(async () => {
     try {
@@ -23,10 +23,10 @@ function Homepage() {
       if (answers[0] === undefined) {
         setQuestionObject(answers);
         setUserAnswers([]);
-        setIsAnswered(false);
+        setHasAnswered(false);
       } else {
         let userIds = answers.map( answer => answer.user.id);
-        userIds.includes(userId) ? setIsAnswered(true) : setIsAnswered(false);
+        userIds.includes(userId) ? setHasAnswered(true) : setHasAnswered(false);
 
         setUserAnswers(answers);
         setQuestionObject(answers[0].question);
@@ -44,8 +44,8 @@ function Homepage() {
         <QuestionAndResponse 
           questionObject = { questionObject } 
           onAddAnswer = { handleAddAnswer } 
-          isAnswered = { isAnswered }
-          setIsAnswered = { setIsAnswered } 
+          hasAnswered = { hasAnswered }
+          setHasAnswered = { setHasAnswered } 
           userId = { userId } 
         /> );
     } else {

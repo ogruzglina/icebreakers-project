@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-function QuestionAndResponse({ questionObject, onAddAnswer, isAnswered, setIsAnswered, userId }) {
+function QuestionAndResponse({ questionObject, onAddAnswer, hasAnswered, setHasAnswered, userId }) {
     const defaultFormData = {
         answer: "",
         user_id: userId,
@@ -53,7 +53,7 @@ function QuestionAndResponse({ questionObject, onAddAnswer, isAnswered, setIsAns
                 }
             });
 
-        setIsAnswered(true);
+        setHasAnswered(true);
         e.target.reset();
         setFormData(defaultFormData)
     }
@@ -62,7 +62,7 @@ function QuestionAndResponse({ questionObject, onAddAnswer, isAnswered, setIsAns
         <div id="question">Question: { questionObject.question }</div> 
         <form onSubmit = { handleSubmit } >
             { answerReponse() }
-            { isAnswered ? null : <button type="submit"> Submit Your Answer </button> }
+            { hasAnswered ? null : <button type="submit"> Submit Your Answer </button> }
         </form>
     </>);
 }
