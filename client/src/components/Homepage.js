@@ -11,6 +11,8 @@ function Homepage() {
   const [ questionObject, setQuestionObject ] = useState({});
   const [ questionDate, setQuestionDate ] = useState(new Date());
   const [ userAnswers, setUserAnswers ] = useState([]);
+  const [ hasAnswered, setHasAnswered ] = useState(false);
+  const userId = 5;
 
   useEffect(async () => {
     try {
@@ -18,22 +20,34 @@ function Homepage() {
       const fetchQuestionURL = "/user_answers/" + date;
       const res = await axios.get(fetchQuestionURL);
       const answers = await res.data;
-      if (answers[0] == undefined) {
+      if (answers[0] === undefined) {
         setQuestionObject(answers);
         setUserAnswers([]);
+        setHasAnswered(false);
       } else {
+        let userIds = answers.map( answer => answer.user.id);
+        userIds.includes(userId) ? setHasAnswered(true) : setHasAnswered(false);
+
         setUserAnswers(answers);
         setQuestionObject(answers[0].question);
         setErrorFound(200);
       }
     } catch (e) {
       setErrorFound(e.response);
+      console.log(e.response.data.errors)
     }
   }, [questionDate]);
 
   function questionAnswerErrorCheck() {
     if (errorFound === 200) {
-      return ( <QuestionAndResponse questionObject = { questionObject } onAddAnswer = { handleAddAnswer }/> );
+      return ( 
+        <QuestionAndResponse 
+          questionObject = { questionObject } 
+          onAddAnswer = { handleAddAnswer } 
+          hasAnswered = { hasAnswered }
+          setHasAnswered = { setHasAnswered } 
+          userId = { userId } 
+        /> );
     } else {
       return (
         <div id="no-question-found">

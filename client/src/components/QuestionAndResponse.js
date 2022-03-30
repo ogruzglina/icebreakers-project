@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-function QuestionAndResponse({ questionObject, onAddAnswer }) {
+function QuestionAndResponse({ questionObject, onAddAnswer, hasAnswered, setHasAnswered, userId }) {
     const defaultFormData = {
         answer: "",
-        user_id: 8,
+        user_id: userId,
         question_id: ""
     };
     const [formData, setFormData] = useState(defaultFormData);
@@ -15,7 +15,7 @@ function QuestionAndResponse({ questionObject, onAddAnswer }) {
         if (answerChoices !== undefined) {
             if (answerChoices === null) {
                 return (<>
-                    "Response:"
+                    Response:
                     <input type="text" name="response" placeholder="Please, write your answer here" onChange = { handleChange } required/>
                 </>);
             } else {
@@ -44,7 +44,6 @@ function QuestionAndResponse({ questionObject, onAddAnswer }) {
     
     function handleSubmit(e) {
         e.preventDefault();
-        console.log("formdata - ", formData);
 
         axios.post('/user_answers', formData)
             .then(res => { onAddAnswer(res.data) })
@@ -54,6 +53,7 @@ function QuestionAndResponse({ questionObject, onAddAnswer }) {
                 }
             });
 
+        setHasAnswered(true);
         e.target.reset();
         setFormData(defaultFormData)
     }
@@ -61,8 +61,8 @@ function QuestionAndResponse({ questionObject, onAddAnswer }) {
     return (<>
         <div id="question">Question: { questionObject.question }</div> 
         <form onSubmit = { handleSubmit } >
-        { answerReponse() }
-        <button type="submit"> Submit Your Answer </button>
+            { answerReponse() }
+            { hasAnswered ? null : <button type="submit"> Submit Your Answer </button> }
         </form>
     </>);
 }
