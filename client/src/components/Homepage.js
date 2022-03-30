@@ -12,6 +12,7 @@ function Homepage() {
   const [ questionDate, setQuestionDate ] = useState(new Date());
   const [ userAnswers, setUserAnswers ] = useState([]);
   const [ hasAnswered, setHasAnswered ] = useState(false);
+  const [ minDate, setMinDate ] = useState(new Date())
   const userId = 5;
 
   useEffect(async () => {
@@ -20,13 +21,14 @@ function Homepage() {
       const fetchQuestionURL = "/user_answers/" + date;
       const res = await axios.get(fetchQuestionURL);
       const answers = await res.data;
+
       if (answers[0] === undefined) {
         setQuestionObject(answers);
         setUserAnswers([]);
         setHasAnswered(false);
       } else {
         let userIds = answers.map( answer => answer.user.id);
-        userIds.includes(userId) ? setHasAnswered(true) : setHasAnswered(false);
+        userIds.includes(userId) ? setHasAnswered(true) : setHasAnswered(false); 
 
         setUserAnswers(answers);
         setQuestionObject(answers[0].question);
@@ -37,6 +39,17 @@ function Homepage() {
       console.log(e.response.data.errors)
     }
   }, [questionDate]);
+
+  useEffect(async () => {
+    try {
+      const res = await axios.get("/questions/");
+      const minQuestionDate = await res.data;
+
+      setMinDate(moment(minQuestionDate).toDate());
+    } catch (e) {
+      console.log(e.response.data.errors)
+    }
+  }, []);
 
   function questionAnswerErrorCheck() {
     if (errorFound === 200) {
@@ -75,6 +88,7 @@ function Homepage() {
           <DatePicker 
             selected={ questionDate } 
             onChange={ e => setQuestionDate(e) } 
+            minDate = { minDate }
             maxDate={ moment().toDate() } 
           /> 
         </div>
