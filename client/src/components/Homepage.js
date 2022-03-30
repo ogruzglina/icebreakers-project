@@ -33,7 +33,7 @@ function Homepage() {
 
   function questionAnswerErrorCheck() {
     if (errorFound === 200) {
-      return ( <QuestionAndResponse questionObject = { questionObject } /> );
+      return ( <QuestionAndResponse questionObject = { questionObject } onAddAnswer = { handleAddAnswer }/> );
     } else {
       return (
         <div id="no-question-found">
@@ -41,6 +41,12 @@ function Homepage() {
         </div>
       )
     }
+  }
+
+  function handleAddAnswer(newAnswer) {
+    setUserAnswers(prevAnswers => {
+      return ([...prevAnswers, newAnswer])
+    });
   }
 
   return (
