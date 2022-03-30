@@ -30,7 +30,7 @@ questions = [
     ["What is your favorite color?", nil],
     ["What is your favorite holiday?", nil],
     ["Which super power do you want?", "Mind Reading|Teleportation|Invisibility|Self-Duplication"],
-    ["If you were a potato, how you be cooked?", "Mashed|Baked|Boild|Fried"],
+    ["If you were a potato, how you be cooked?", "Mashed|Baked|Boiled|Fried"],
     ["Which of the following animals would you be?", "Dog|Cat|Whale|Bird"],
     ["What is your favorite flavors of ice cream?", "Vanilla|Chocolate|Cookie Dough|Matcha"],
     ["Would you let aliens beam you up if they came to Earth?", nil],
