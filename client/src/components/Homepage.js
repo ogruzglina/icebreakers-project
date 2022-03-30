@@ -27,8 +27,8 @@ function Homepage({ currentUser }) {
         setHasAnswered(false);
       } else {
         let userIds = answers.map( answer => answer.user.id);
-        userIds.includes(currentUser) ? setHasAnswered(true) : setHasAnswered(false); 
-
+        userIds.includes(currentUser.id) ? setHasAnswered(true) : setHasAnswered(false); 
+        
         setUserAnswers(answers);
         setQuestionObject(answers[0].question);
         setErrorFound(200);
@@ -93,7 +93,7 @@ function Homepage({ currentUser }) {
         </div>
       </div>
 
-      <UserAnswers uAnswers = { userAnswers } errorFound = { errorFound }/>
+      <UserAnswers uAnswers = { userAnswers } errorFound = { errorFound } hasAnswered = { hasAnswered }/>
     </div>
   );
 }
