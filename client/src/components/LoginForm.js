@@ -7,7 +7,7 @@ function LoginForm({ onLogin }){
     
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const [errors, setErrors] = useState([]);
+    const [error, setError] = useState("");
     const [isLoading, setIsLoading] = useState(false);
   
     // const history = useHistory();
@@ -28,8 +28,8 @@ function LoginForm({ onLogin }){
                 });
             } else {
                 res.json().then((error) => {
-                    console.log(error.errors)
-                    // setErrors(error.errors)
+                    console.log(error.error.login)
+                    setError(error.error.login)
                     // alert(error.errors)
                 });
             }
@@ -62,9 +62,7 @@ function LoginForm({ onLogin }){
             <button variant="fill" color="primary" type="submit">
             {isLoading ? "Loading..." : "Login"}
             </button>
-            {/* {errors.map((err) => (
-                <p key={err}>{err}</p>
-            ))} */}
+            <h3 style = {{ color: "red"}}>{ error }</h3>
         </form>
         // </div>
         // <div>
