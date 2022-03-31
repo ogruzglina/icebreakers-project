@@ -49,11 +49,11 @@ div {
     0 5px 20px rgba(3, 120, 166,.25),
     0 15px 50px rgba(3, 120, 166,.75),
     inset 0 0 15px rgba(255,255,255,.05);
-}
+  }
 
 #question {
   /* margin: 10px 0; */
-  border: solid 1px #000;
+  /* border: solid 1px #000; */
 }
 
 #answer-response {
@@ -79,4 +79,14 @@ div {
 
 .btn-grow {
   flex-grow: 1;
+}
+
+.text-color {
+  color: #fff;
+}
+
+label {
+  color: #fff;
+  padding: 0.5em;
+  /* margin: 2%; */
 }

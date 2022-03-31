@@ -122,7 +122,7 @@ function Homepage({ currentUser }) {
         </div>
         <div id="date-container">
           <div id="date-picker">
-            Select Question Date:
+            <div className="text-color">Select Question Date:</div>
             <DatePicker 
               selected={ questionDate } 
               onChange={ e => setQuestionDate(e) } 

@@ -19,7 +19,7 @@ function UserAnswers({ uAnswers, errorFound, hasAnswered }) {
                     </div>
                 );
                 return (<>
-                    <h2>All answers for this question:</h2>
+                    <h2 className="text-center">All Answers for this Question:</h2>
                         { answers } 
                 </>);
             } else {
@@ -28,7 +28,7 @@ function UserAnswers({ uAnswers, errorFound, hasAnswered }) {
         } else 
             return null;
     }    
-    return ( <div> { showAllAnswers() } </div> );
+  return ( <div className="center-block text-color" style={{width: "40%"}}> { showAllAnswers() } </div> );
 }
 
 export default UserAnswers
