@@ -1,16 +1,12 @@
 import React, { useState } from 'react'
-import defaultAvatar from "../images/default-avatar.jpeg"
 
 function Profile({ currentUser, setCurrentUser }) {
-  // const [username, setUsername] = useState("");
-  // const [password, setPassword] = useState("");
-  // const [passwordConfirmation, setPasswordConfirmation] = useState("");
-  const [firstName, setFirstName] = useState(null);
-  const [lastName, setLastName] = useState(null);
-  const [avatarUrl, setAvatarUrl] = useState(null);
-  const [hometown, setHometown] = useState(null);
-  const [birthdate, setBirthdate] = useState(null);
-  const [email, setEmail] = useState(null);
+  const [firstName, setFirstName] = useState(currentUser.first_name);
+  const [lastName, setLastName] = useState(currentUser.last_name);
+  const [avatarUrl, setAvatarUrl] = useState(currentUser.avatar);
+  const [hometown, setHometown] = useState(currentUser.hometown);
+  const [birthdate, setBirthdate] = useState(currentUser.birthdate);
+  const [email, setEmail] = useState(currentUser.email);
   const [isLoading, setIsLoading] = useState(false);
 
   function handleSaveChangesClick(e) {
@@ -22,9 +18,9 @@ function Profile({ currentUser, setCurrentUser }) {
       first_name: firstName,
       last_name: lastName,
       avatar: avatarUrl,
-      hometown,
-      birthdate,
-      email,
+      hometown: hometown,
+      birthdate: birthdate,
+      email: email,
     }
 
     fetch(`/users/${currentUser.id}`, {
@@ -34,10 +30,17 @@ function Profile({ currentUser, setCurrentUser }) {
     })
     .then((r) => {
       setIsLoading(false);
-      r.json()
+      r.json();
+      setCurrentUser({...user,
+        first_name: firstName,
+        last_name: lastName,
+        avatar: avatarUrl,
+        hometown: hometown,
+        birthdate: birthdate,
+        email: email,
+      });
     })
     .then((json) => console.log(json));
-
   }
 
   return (
@@ -63,9 +66,7 @@ function Profile({ currentUser, setCurrentUser }) {
           />
         </div>
         <div>
-          <label>Profile Picture</label>
-          <input type="file" id="myFile" name="filename"
-                    onChange={(e) => setAvatarUrl(e.target.value)}/>
+          <label>Profile Picture URL</label>
           <input
           type="text"
           id="last-name"
