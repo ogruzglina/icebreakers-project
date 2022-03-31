@@ -28,7 +28,7 @@ function NavBar({ setCurrentUser }) {
                     <div class="navbar-collapse collapse" id="mobile_menu">                    
                         <ul class="nav navbar-nav navbar-right">
                             <li><a href="/profile"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
-                            <li onClick={handleLogoutClick}><a href="/"><span class="glyphicon glyphicon-log-in"></span> Logout</a>
+                            <li><a href="/" onClick={handleLogoutClick}><span class="glyphicon glyphicon-log-in"></span> Logout</a>
                             </li>
                         </ul>
                     </div>
