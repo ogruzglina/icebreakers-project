@@ -26,6 +26,7 @@ function QuestionAndResponse({ questionObject, onAddAnswer, hasAnswered, setHasA
                             type = "radio" 
                             name = "answer-choice" 
                             value = { answerChoice } 
+                            disabled={ hasAnswered }
                         /> { answerChoice } 
                     </div>
                 );
