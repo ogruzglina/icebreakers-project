@@ -63,7 +63,7 @@ function QuestionAndResponse({ questionObject, onAddAnswer, hasAnswered, setHasA
         <div id="question">Question: { questionObject.question }</div> 
         <form onSubmit = { handleSubmit } >
             { answerReponse() }
-            { hasAnswered ? null : <button type="submit"> Submit Your Answer </button> }
+            { hasAnswered ? null : <button type="submit" className="btn btn-primary"> Submit Your Answer </button> }
         </form>
     </>);
 }
