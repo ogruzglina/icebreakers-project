@@ -37,12 +37,12 @@ function SignUpForm({ onLogin }) {
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(user),
         }).then((r) => {
-        setIsLoading(false);
-        if (r.ok) {
-            r.json().then((user) => onLogin(user));
-        } else {
-            r.json().then((err) => setErrors(err.errors));
-        }
+            setIsLoading(false);
+            if (r.ok) {
+                r.json().then((user) => onLogin(user));
+            } else {
+                r.json().then((err) => setErrors(err.errors));
+            }
         });
     }
 
@@ -90,7 +90,7 @@ function SignUpForm({ onLogin }) {
             />
             <button type="submit">{isLoading ? "Loading..." : "Sign Up"}</button>
             {errors.map((err) => (
-            <div key={err}>{err}</div>
+                <div key={err}>{err}</div>
             ))}
         </form>
     );
