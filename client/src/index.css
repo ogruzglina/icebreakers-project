@@ -12,6 +12,10 @@ code {
     monospace;
 }
 
+div {
+  margin: 0;
+}
+
 #homepage-container {
   margin: 10px 0;
   border: solid 1px #000;
