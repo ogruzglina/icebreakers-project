@@ -45,7 +45,10 @@ function Profile({ currentUser, setCurrentUser }) {
 
   return (
     <div className="user-account">
-      <form className="user-profile" onSubmit={handleSaveChangesClick}>
+      <form className="user-profile text-center" onSubmit={handleSaveChangesClick}>
+        <div>
+          <h2 className="text-color">Update Your Profile</h2>
+        </div>
         <div>
           <label>First Name</label>
           <input

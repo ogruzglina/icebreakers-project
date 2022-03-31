@@ -53,7 +53,7 @@ div {
 
 #question {
   /* margin: 10px 0; */
-  border: solid 1px #000;
+  /* border: solid 1px #000; */
 }
 
 #answer-response {
@@ -81,6 +81,12 @@ div {
   flex-grow: 1;
 }
 
-.white-text {
+.text-color {
   color: #fff;
+}
+
+label {
+  color: #fff;
+  padding: 0.5em;
+  /* margin: 2%; */
 }

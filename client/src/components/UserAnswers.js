@@ -28,7 +28,7 @@ function UserAnswers({ uAnswers, errorFound, hasAnswered }) {
         } else 
             return null;
     }    
-  return ( <div className="center-block" style={{width: "40%", color: "white"}}> { showAllAnswers() } </div> );
+  return ( <div className="center-block text-color" style={{width: "40%"}}> { showAllAnswers() } </div> );
 }
 
 export default UserAnswers
