@@ -7,7 +7,7 @@ function SignUpForm({ onLogin }) {
     const [passwordConfirmation, setPasswordConfirmation] = useState("");
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
-    const [avatarUrl, setAvatarUrl] = useState("../images/default-avatar.jpeg");
+    const [avatarUrl, setAvatarUrl] = useState("https://media.istockphoto.com/vectors/default-profile-picture-avatar-photo-placeholder-vector-illustration-vector-id1223671392?k=20&m=1223671392&s=612x612&w=0&h=lGpj2vWAI3WUT1JeJWm1PRoHT3V15_1pdcTn2szdwQ0=");
     const [hometown, setHometown] = useState("");
     const [birthdate, setBirthdate] = useState("");
     const [email, setEmail] = useState("");
