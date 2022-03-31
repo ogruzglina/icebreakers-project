@@ -25,14 +25,29 @@ div {
 }
 
 #question-and-response {
-  margin: 10px 0;
-  border: solid 1px #000;
+  /* margin: 10px 0; */
+  /* border: solid 1px #000; */
 
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   /* max-width: 200px; */
+
+  color: rgba(255,255,255,.5);
+  margin: 10px 0;
+  padding: 1.3em;
+  background: #292942;
+  border-radius: .75em;
+  -webkit-filter: drop-shadow(1px 2px 5px rgba(0,0,0,.3));
+  filter: drop-shadow(1px 2px 5px rgba(0,0,0,.3));
+  box-shadow: 
+    0 2px 2px rgba(243,49,128,.5),
+    0 0px 5px rgba(243,49,128,.15),
+    0 0px 4px rgba(0,0,0,.35),
+    0 5px 20px rgba(243,49,128,.25),
+    0 15px 50px rgba(243,49,128,.75),
+    inset 0 0 15px rgba(255,255,255,.05);
 }
 
 #question {
