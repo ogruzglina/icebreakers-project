@@ -26,7 +26,7 @@ function App() {
       <main>
         <Switch>
           <Route path="/profile">
-            <Profile currentUser={currentUser} />
+            <Profile currentUser={ currentUser } setCurrentUser={ setCurrentUser } />
           </Route>
           <Route exact path="/">
             <Homepage currentUser = { currentUser }/>
