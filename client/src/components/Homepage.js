@@ -12,7 +12,11 @@ function Homepage({ currentUser }) {
   const [ questionDate, setQuestionDate ] = useState(new Date());
   const [ userAnswers, setUserAnswers ] = useState([]);
   const [ hasAnswered, setHasAnswered ] = useState(false);
-  const [ minDate, setMinDate ] = useState(new Date())
+  const [ minDate, setMinDate ] = useState(new Date());
+  const [ disablePrev, setDisablePrev ] = useState(false);
+  const [ disableNext, setDisableNext ] = useState(true);
+
+  const maxDateDay = moment().toDate().setHours(0, 0, 0, 0);
 
   useEffect(async () => {
     try {
@@ -33,6 +37,7 @@ function Homepage({ currentUser }) {
         setQuestionObject(answers[0].question);
         setErrorFound(200);
       }
+  
     } catch (e) {
       setErrorFound(e.response);
       console.log(e.response.data.errors)
@@ -44,9 +49,13 @@ function Homepage({ currentUser }) {
       const res = await axios.get("/questions/");
       const minQuestionDate = await res.data;
 
-      setMinDate(moment(minQuestionDate).toDate());
+      const minQuestionDateDay = moment(minQuestionDate).toDate().setHours(0, 0, 0, 0);
+      setMinDate(minQuestionDateDay);
+      if (questionDate.setHours(0, 0, 0, 0) === minQuestionDateDay) setDisablePrev(true);
+      if (questionDate.setHours(0, 0, 0, 0) === maxDateDay) setDisableNext(true);
+
     } catch (e) {
-      console.log(e.response.data.errors)
+      console.log(e.response)
     }
   }, []);
 
@@ -75,21 +84,56 @@ function Homepage({ currentUser }) {
     });
   }
 
+  function handlePrevNextClick(e) {
+    const button = e.target.value;
+    const dateOffset = 24*60*60*1000;
+    
+    const prevDate = new Date(questionDate.getTime()-(dateOffset));
+    const prevDateDay = prevDate.setHours(0, 0, 0, 0);
+
+    const nextDate = new Date(questionDate.getTime()+(dateOffset));
+    const nextDateDay = nextDate.setHours(0, 0, 0, 0);
+
+    if ((prevDateDay > minDate && prevDateDay <= maxDateDay) || (nextDateDay > minDate && nextDateDay <= maxDateDay)) {
+      setDisablePrev(false);
+      setDisableNext(false);
+    }
+
+    if(button === "Prev") {
+      setQuestionDate(prevDate);
+      if(prevDateDay === minDate) {
+        setDisablePrev(true);
+      }
+    }
+
+    if(button === "Next") {
+      setQuestionDate(nextDate);
+      if(nextDateDay === maxDateDay) {
+        setDisableNext(true);
+      }
+    }
+  }
+
   return (
     <div>
       <div id="homepage-container">
         <div id="question-and-response" className="question-answer-box">
           { questionAnswerErrorCheck() }
         </div>
-        
-        <div id="date-picker">
-          Select Question Date:
-          <DatePicker 
-            selected={ questionDate } 
-            onChange={ e => setQuestionDate(e) } 
-            minDate = { minDate }
-            maxDate={ moment().toDate() } 
-          /> 
+        <div id="date-container">
+          <div id="date-picker">
+            Select Question Date:
+            <DatePicker 
+              selected={ questionDate } 
+              onChange={ e => setQuestionDate(e) } 
+              minDate = { minDate }
+              maxDate={ moment().toDate() } 
+            /> 
+          </div>
+          <div className="date-button-container">
+            <button className="btn btn-primary btn-grow" value="Prev" onClick={handlePrevNextClick} disabled={disablePrev}>Prev</button>
+            <button className="btn btn-primary btn-grow" value="Next" onClick={handlePrevNextClick} disabled={disableNext}>Next</button>
+          </div>
         </div>
       </div>
 
