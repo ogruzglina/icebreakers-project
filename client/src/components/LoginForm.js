@@ -42,7 +42,7 @@ function LoginForm({ onLogin }){
         // <div>
         //     <p> User Login </p>
             
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className = "login">
             <label htmlFor="username">Username</label>
             <input 
                 type="text" 
@@ -59,7 +59,7 @@ function LoginForm({ onLogin }){
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
             />
-            <button variant="fill" color="primary" type="submit">
+            <button className = "submit" variant="fill" color="primary" type="submit">
             {isLoading ? "Loading..." : "Login"}
             </button>
             <h3 style = {{ color: "red"}}>{ error }</h3>

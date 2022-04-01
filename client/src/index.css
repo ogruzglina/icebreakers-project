@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #e5e6df; /*#F6E4DA;*/
 }
 
 code {
@@ -51,3 +52,37 @@ code {
   align-self: start;
   flex-direction: column;
 }
+
+.login {
+  width: 550px;
+  height: 550px;
+  display: block;
+  margin: 0 auto -15px auto;
+  background-color: #262312;
+  border-radius: 100%;
+  border: 1px solid #ff7052;
+  color: #ff7052;
+  font-size: 24px;
+  /* box-shadow: 0px 0px 0px 7px #fff; */
+  transition: 0.2s ease-out;
+}
+
+.submit {
+  width: 200px;
+  height: 200px;
+  display: block;
+  margin: 350px 0 -15px auto;
+  background: #52D9CB;
+  border-radius: 100%;
+  border: 1px solid #ff7052;
+  color: #ff7052;
+  font-size: 24px;
+  cursor: pointer;
+  /* box-shadow: 0px 0px 0px 7px #fff; */
+  transition: 0.2s ease-out;
+}
+  .submit:hover, .submit:focus {
+    background: #ff7052;
+    color: #fff;
+    outline: 0;
+  }
