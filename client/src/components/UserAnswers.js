@@ -19,7 +19,7 @@ function UserAnswers({ uAnswers, errorFound, hasAnswered }) {
                     </div>
                 );
                 return (<>
-                    <h2 className="text" style = {{ fontWeight: "bold", textAlign: "center" }}>All Answers for this Question:</h2>
+                    <h2 className="text" style = {{ fontWeight: "bold", textAlign: "center", fontSize: "30px", margin: "110px 0 40px 0" }}>All Answers for this Question:</h2>
                         { answers } 
                 </>);
             } else {

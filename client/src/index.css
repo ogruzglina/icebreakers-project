@@ -176,8 +176,9 @@ textarea.form-control {
 
 #answers {
   font-family: "Chalkduster";
-  font-size:20px;
+  font-size:30px;
   color: white;
+  margin-bottom: 15px;
 }
 
 .ans-input {

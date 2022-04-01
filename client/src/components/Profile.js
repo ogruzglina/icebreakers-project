@@ -46,9 +46,10 @@ function Profile({ currentUser, setCurrentUser }) {
   return (
     <div className="user-account" style = {{ displey: "flex", flexDirection: "column", justifyContent: "center"}}>
       <h1  style = {{ marginTop: "150px", display: "flex", justifyContent: "center"}}><b>Update Your Profile</b></h1>
-      <form className=" text-center" onSubmit={handleSaveChangesClick} style = {{ marginTop: "30px", display: "flex", justifyContent: "center"}}>
-        
-        <div className="profile">
+      <form className=" text-center" onSubmit={handleSaveChangesClick} style = {{ marginTop: "30px", display: "flex", justifyContent: "center", flexDirection: "column"}}>
+      
+        <div className="profile" style = {{ marginTop: "30px", display: "flex", justifyContent: "center", marginLeft: "33%"}}>
+          
         <div className = "profile-input">
           <div><label>First Name</label></div>
           <div>
@@ -126,11 +127,14 @@ function Profile({ currentUser, setCurrentUser }) {
               style = {{width: "400px"}}
             /> </div>
         </div>
-        </div>
         
+        </div>
+        <div>
+        <button className = "btn" type="submit" style = {{ marginTop: "30px", marginLeft: "47%", display: "flex", justifyContent: "center"}}>{isLoading ? "Loading..." : "Save Changes"}</button>
+        </div>
         {/* <button className = "btn" type="submit">{isLoading ? "Loading..." : "Save Changes"}</button> */}
       </form>
-      <button className = "btn" type="submit" style = {{ marginTop: "30px", marginLeft: "47%", display: "flex", justifyContent: "center"}}>{isLoading ? "Loading..." : "Save Changes"}</button>
+      
     </div>
   )
 }
