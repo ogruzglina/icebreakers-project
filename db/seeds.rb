@@ -24,19 +24,20 @@ n_users.times do
     User.create(first_name: name, last_name: last_name, username: username, password_digest: password, avatar: picture, hometown: address, birthdate: bd, email: email)
 end 
 
-n_questions = 10
-i = -5
+n_questions = 11
+i = -8
 questions = [
-    ["What is your favorite color?", nil],
-    ["What is your favorite holiday?", nil],
-    ["Which super power do you want?", "Mind Reading|Teleportation|Invisibility|Self-Duplication"],
+    ["What is your favorite color and why?", nil],
+    ["What is your favorite holiday and why?", nil],
+    ["Which of the following superpowers would you prefer to have?", "Mind Reading|Teleportation|Invisibility|Self-Replication"],
     ["If you were a potato, how you be cooked?", "Mashed|Baked|Boiled|Fried"],
-    ["Which of the following animals would you be?", "Dog|Cat|Whale|Bird"],
-    ["What is your favorite flavors of ice cream?", "Vanilla|Chocolate|Cookie Dough|Matcha"],
     ["Would you let aliens beam you up if they came to Earth?", nil],
-    ["What’s your caffeinated beverage of choice?", "Coffee|Cola|Tea|Red Bull"],
+    ["If you were one of these animals, which would you be?", "Dog|Cat|Whale|Bird"],
+    ["Which of the following flavors of ice cream do you prefer?", "Vanilla|Chocolate|Strawberry|None of the above"],
+    ["What is your favorite hobby and why?", nil],
+    ["What is your favorite season?", "Winter|Spring|Summer|Fall"],
     ["What is your favorite month and why?", nil],
-    ["What is your hobby?", nil]
+    ["What’s your caffeinated beverage of choice?", "Coffee|Cola|Tea|Red Bull"],
 ]
 
 n_questions.times do
@@ -66,14 +67,19 @@ all_answers = [
     [4, "Mashed"],
     [4, "Baked"],
     [4, "Boiled"],
-    [5, "Dog"],
-    [5, "Cat"],
-    [5, "Bird"],
-    [5, "Whale"],
-    [6, "Chocolate"],
-    [6, "Matcha"],
-    [6, "Vanilla"],
-    [6, "Cookie Dough"]
+    [6, "Dog"],
+    [6, "Cat"],
+    [6, "Bird"],
+    [6, "Whale"],
+    [7, "Chocolate"],
+    [7, "Strawberry"],
+    [7, "Vanilla"],
+    [7, "Chocolate"],
+    [9, "Fall"],
+    [9, "Spring"],
+    [9, "Summer"],
+    [9, "Fall"],
+    [9, "Summer"]
 ]
    
 n_answers.times do
