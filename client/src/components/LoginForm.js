@@ -37,28 +37,27 @@ function LoginForm({ onLogin }){
     }
     
     return(
-        // <React.Fragment>
-        //     <Link to="/">Home</Link>
-        // <div>
-        //     <p> User Login </p>
-            
-        <form onSubmit={handleSubmit} className = "login">
-            <label htmlFor="username">Username</label>
-            <input 
-                type="text" 
-                id="username"
-                autoComplete="off"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-            />
-            <label htmlFor="password">Password</label>
-            <input
-                type="password"
-                id="password"
-                autoComplete="off"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-            />
+        <form onSubmit = { handleSubmit } className = "login">
+            <div className="form-fields">
+                {/* <label htmlFor="username">Username</label> */}
+                <input className="input"
+                    type="text" 
+                    id="username"
+                    autoComplete="off"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    placeholder="username"
+                />
+                {/* <label htmlFor="password">Password</label> */}
+                <input className="input"
+                    type="password"
+                    id="password"
+                    autoComplete="off"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    placeholder="password"
+                />
+            </div>
             <button className = "submit" variant="fill" color="primary" type="submit">
             {isLoading ? "Loading..." : "Login"}
             </button>

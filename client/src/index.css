@@ -58,15 +58,25 @@ code {
   height: 550px;
   display: block;
   margin: 0 auto -15px auto;
+  padding: 10px;
   background-color: #262312;
   border-radius: 100%;
-  border: 1px solid #ff7052;
+  /* border: 1px solid #ff7052; */
   color: #ff7052;
   font-size: 24px;
   /* box-shadow: 0px 0px 0px 7px #fff; */
   transition: 0.2s ease-out;
 }
-
+.form-fields {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;  
+}
+.input {
+  height: 50%px;
+  padding: 200px auto;
+}
 .submit {
   width: 200px;
   height: 200px;
@@ -74,15 +84,17 @@ code {
   margin: 350px 0 -15px auto;
   background: #52D9CB;
   border-radius: 100%;
-  border: 1px solid #ff7052;
-  color: #ff7052;
+  border: 1px solid #52D9CB;
+  color: navy;
   font-size: 24px;
   cursor: pointer;
   /* box-shadow: 0px 0px 0px 7px #fff; */
   transition: 0.2s ease-out;
 }
   .submit:hover, .submit:focus {
-    background: #ff7052;
-    color: #fff;
+    background: navy;
+    color: #52D9CB;
+    border: 1px solid navy;
     outline: 0;
   }
+
