@@ -1,21 +1,25 @@
 import { useState } from "react";
-// import styled from "styled-components";
 import LoginForm from "../components/LoginForm";
 import SignUpForm from "../components/SignUpForm";
+// import logo from "../images/logo.png"
 
 function Login({ onLogin }) {
   const [showLogin, setShowLogin] = useState(true);
 
   return (
     <>
-      Icebreakers
+    {/* <div >
+      <h1>Welcome</h1>
+      <h2>to</h2>
+      <img src={logo} alt="logo" width="70%" />
+    </div> */}
       {showLogin ? (
         <>
           <LoginForm onLogin={onLogin} />
           <br />
-          <p>
+          <p id = "text-for-signup">
             Don't have an account? &nbsp;
-            <button color="secondary" onClick={() => setShowLogin(false)}>
+            <button type="button" class="btn btn-secondary" color="secondary" onClick={() => setShowLogin(false)}>
               Sign Up
             </button>
           </p>
@@ -24,9 +28,9 @@ function Login({ onLogin }) {
         <>
           <SignUpForm onLogin={onLogin} />
           <br />
-          <p>
+          <p id = "text-for-signup">
             Already have an account? &nbsp;
-            <button color="secondary" onClick={() => setShowLogin(true)}>
+            <button type="button" class="btn btn-secondary" color="secondary" onClick={() => setShowLogin(true)}>
               Log In
             </button>
           </p>

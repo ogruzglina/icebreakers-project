@@ -73,30 +73,48 @@ div {
   align-self: start;
   flex-direction: column;
 }
+#text-for-signup {
+  text-align: center;
+  color: navy;
+  font-size: 18px;
+}
+.btn {
+  font-size:18px;
+  color: rgb(0, 0, 95);
+  border: 1px solid #025E73;
+}
 
 .login {
   width: 550px;
   height: 550px;
   display: block;
-  margin: 0 auto -15px auto;
+  margin: 150px auto 50px auto;
   padding: 10px;
   background-color: #262312;
   border-radius: 100%;
   /* border: 1px solid #ff7052; */
-  color: #ff7052;
+  color: navy;
   font-size: 24px;
   /* box-shadow: 0px 0px 0px 7px #fff; */
   transition: 0.2s ease-out;
+  box-shadow: 0 0 5px #025E73,
+              0 0 25px #025E73,
+              0 0 50px #52D9CB,
+              0 0 100px #52D9CB;
 }
 .form-fields {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;  
+  align-items: center;
+  position: absolute;
+  margin: 170px 140px 0 140px;
+  width: 245px;
 }
 .input {
-  height: 50%px;
+  height: 45px;
   padding: 200px auto;
+  box-shadow: insent 0px 0px 0px 7px #52D9CB;
 }
 .submit {
   width: 200px;
@@ -106,16 +124,16 @@ div {
   background: #52D9CB;
   border-radius: 100%;
   border: 1px solid #52D9CB;
-  color: navy;
+  color: rgb(0, 0, 95);
   font-size: 24px;
   cursor: pointer;
   /* box-shadow: 0px 0px 0px 7px #fff; */
   transition: 0.2s ease-out;
 }
   .submit:hover, .submit:focus {
-    background: navy;
+    background: #025E73;
     color: #52D9CB;
-    border: 1px solid navy;
+    border: 1px solid #025E73;
     outline: 0;
   }
 
