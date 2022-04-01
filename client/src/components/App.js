@@ -41,6 +41,10 @@ function App() {
       <img src={icecube} alt="ice cube" className="cube" />
       <img src={icecube} alt="ice cube" className="cube" />
       <img src={icecube} alt="ice cube" className="cube" />
+      <img src={icecube} alt="ice cube" className="cube" />
+      <img src={icecube} alt="ice cube" className="cube" />
+      <img src={icecube} alt="ice cube" className="cube" />
+      <img src={icecube} alt="ice cube" className="cube" />
       </main>
     </>
   );
