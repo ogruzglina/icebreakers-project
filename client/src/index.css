@@ -201,6 +201,10 @@ label {
   align-content: center;
   flex-direction: column;
 }
+.user-profile {
+  display: flex;
+  justify-content: center;
+}
 
 .p-i-div {
   display: flex;
