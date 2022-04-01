@@ -21,8 +21,10 @@ function QuestionAndResponse({ questionObject, onAddAnswer, hasAnswered, setHasA
             } else {
                 const answerChoicesArray = answerChoices.split("|");
                 const radioButtons = answerChoicesArray.map( answerChoice =>
-                    <div key = { answerChoice } >                     
+                    <div key = { answerChoice } className = "form-check ans-input " >                     
                         <input  
+                            id="flexRadioDisabled"
+                            className = "form-check-input"
                             type = "radio" 
                             name = "answer-choice" 
                             value = { answerChoice } 
@@ -30,7 +32,7 @@ function QuestionAndResponse({ questionObject, onAddAnswer, hasAnswered, setHasA
                         /> { answerChoice } 
                     </div>
                 );
-                return <div onChange = { handleChange } className="text-color"> { radioButtons } </div>;
+                return <div onChange = { handleChange } className="text"> { radioButtons } </div>;
             }
         }
     }
@@ -60,10 +62,10 @@ function QuestionAndResponse({ questionObject, onAddAnswer, hasAnswered, setHasA
     }
 
     return (<>
-        <div id="question" className="text-color">Question: { questionObject.question }</div> 
+        <div id="question" className="text">QUESTION: { questionObject.question }</div> 
         <form onSubmit = { handleSubmit } >
             { answerReponse() }
-            { hasAnswered ? null : <button type="submit" className="btn btn-primary"> Submit Your Answer </button> }
+            <button type="submit" className="btn btn-primary" disabled = { hasAnswered }> Submit Your Answer </button>
         </form>
     </>);
 }

@@ -145,10 +145,21 @@ div {
   flex-grow: 1;
 }
 
-.text-color {
+.text {
   color: #fff;
+  font-size: 20px;
+  margin-bottom: 10px;
+  font-family: "Andale Mono"; 
+}
+.form-check-input {
+  margin-bottom: 5px;
 }
 
+.ans-input {
+  font-family: "Andale Mono";
+  color: white;
+  font-size:18px;
+}
 label {
   color: #fff;
   padding: 0.5em;

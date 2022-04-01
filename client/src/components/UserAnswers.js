@@ -23,7 +23,7 @@ function UserAnswers({ uAnswers, errorFound, hasAnswered }) {
                         { answers } 
                 </>);
             } else {
-                return ( <h4>You will only see your peers' answers after you submit your own!</h4> );
+                return ( <h4 className = "ans-input">You will only see your peers' answers after you submit your own!</h4> );
             }
         } else 
             return null;

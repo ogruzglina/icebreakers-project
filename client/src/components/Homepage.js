@@ -71,7 +71,7 @@ function Homepage({ currentUser }) {
         /> );
     } else {
       return (
-        <div id="no-question-found">
+        <div id="no-question-found" className = "ans-input">
           No Question Found. Please Select a New Date!
         </div>
       )
@@ -122,7 +122,7 @@ function Homepage({ currentUser }) {
         </div>
         <div id="date-container">
           <div id="date-picker">
-            <div className="text-color">Select Question Date:</div>
+            <div style = {{fontSize: "16px", color: "#fff"}}>Select Question Date:</div>
             <DatePicker 
               selected={ questionDate } 
               onChange={ e => setQuestionDate(e) } 
