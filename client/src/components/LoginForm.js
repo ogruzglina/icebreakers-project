@@ -1,7 +1,4 @@
 import React, { useState } from "react"; 
-// import { Button, Error, Input, FormField, Label } from "../styles";
-// import { Link } from "react-router-dom";
-// import { useHistory } from "react-router-dom";
 
 function LoginForm({ onLogin }){
     
@@ -33,7 +30,7 @@ function LoginForm({ onLogin }){
     }
     
     return(
-        <form onSubmit = { handleSubmit } className = "login">
+        <form onSubmit = { handleSubmit } className = "login-signup">
             <div className="form-fields">
                 <input className="input form-control" 
                     style = {{marginBottom: "10px"}}
@@ -55,12 +52,10 @@ function LoginForm({ onLogin }){
                 <h4 style = {{ color: "red" }}>{ error }</h4>
             </div>
             <button className = "submit" variant="fill"  type="submit">
-                {isLoading ? "Loading..." : "Login"}
+                {isLoading ? "Loading..." : "LOG IN"}
             </button>            
         </form>
-        
     ); 
-
 }
 
 export default LoginForm;

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// import { button, Error, input, formfield, label, Textarea } from "../styles";
 
 function SignUpForm({ onLogin }) {
     const [username, setUsername] = useState("");
@@ -13,8 +12,6 @@ function SignUpForm({ onLogin }) {
     const [email, setEmail] = useState("");
     const [errors, setErrors] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
-
-    // const history = useHistory();
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -50,50 +47,60 @@ function SignUpForm({ onLogin }) {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <label htmlFor="first_name">First Name</label>
-            <input
-                type="text"
-                id="first-name"
-                autoComplete="off"
-                value={firstName}
-                onChange={(e) => setFirstName(e.target.value)}
-            />
-            <label htmlFor="last_name">Last Name</label>
-            <input
-                type="text"
-                id="last-name"
-                autoComplete="off"
-                value={lastName}
-                onChange={(e) => setLastName(e.target.value)}
-            />
-            <label htmlFor="username">Username</label>
-            <input
-                type="text"
-                id="username"
-                autoComplete="off"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-            />
-            <label htmlFor="password">Password</label>
-            <input
-                type="password"
-                id="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                autoComplete="current-password"
-            />
-            <label htmlFor="password">Password Confirmation</label>
-            <input
-                type="password"
-                id="password_confirmation"
-                value={passwordConfirmation}
-                onChange={(e) => setPasswordConfirmation(e.target.value)}
-                autoComplete="current-password"
-            />
-            <button type="submit">{isLoading ? "Loading..." : "Sign Up"}</button>
-            { errors.map((err) => ( <h3 key = { err } style = {{ color: "red"}}>{ err }</h3> ))}
+        <form onSubmit = { handleSubmit } className = "login-signup">
+            <div className="form-fields signup-fields">
+                <input className="input form-control" 
+                    style = {{marginBottom: "10px"}}
+                    type="text"
+                    id="first-name"
+                    autoComplete="off"
+                    value={firstName}
+                    placeholder="First name"
+                    onChange={(e) => setFirstName(e.target.value)}
+                />
+                <input className="input form-control" 
+                    style = {{marginBottom: "10px"}}
+                    type="text"
+                    id="last-name"
+                    autoComplete="off"
+                    value={lastName}
+                    placeholder="Last name"
+                    onChange={(e) => setLastName(e.target.value)}
+                />
+                <input className="input form-control" 
+                    style = {{marginBottom: "10px"}}
+                    type="text"
+                    id="username"
+                    autoComplete="off"
+                    value={username}
+                    placeholder="Username"
+                    onChange={(e) => setUsername(e.target.value)}
+                />
+                <input className="input form-control" 
+                    style = {{marginBottom: "10px"}}
+                    type="password"
+                    id="password"
+                    value={password}
+                    placeholder="Password"
+                    onChange={(e) => setPassword(e.target.value)}
+                    autoComplete="current-password"
+                />
+                <input className="input form-control" 
+                    style = {{marginBottom: "10px"}}
+                    type="password"
+                    id="password_confirmation"
+                    value={passwordConfirmation}
+                    placeholder="Password confirmation"
+                    onChange={(e) => setPasswordConfirmation(e.target.value)}
+                    autoComplete="current-password"
+                />
+                { errors.map((err) => ( <h4 key = { err } style = {{ color: "red"}}>{ err }</h4> ))}
+            </div>
+            <button className = "submit" type="submit">
+                { isLoading ? "Loading..." : "SIGN UP" }
+            </button>
         </form>
+
     );
 }
 
