@@ -117,13 +117,15 @@ function Homepage({ currentUser }) {
   return (
     <div>
       <div id="homepage-container">
-        <div id="question-and-response" className="question-answer-box">
+        <div id="question-and-response" className="question-answer-box" style = {{backgroundColor: "#262312"}}>
           { questionAnswerErrorCheck() }
         </div>
         <div id="date-container">
           <div id="date-picker">
             <div style = {{fontSize: "16px", color: "#fff"}}>Select Question Date:</div>
             <DatePicker 
+              className="form-control"
+              style = {{textAlign: "center" }}
               selected={ questionDate } 
               onChange={ e => setQuestionDate(e) } 
               minDate = { minDate }
@@ -131,8 +133,8 @@ function Homepage({ currentUser }) {
             /> 
           </div>
           <div className="date-button-container">
-            <button className="btn btn-primary btn-grow" value="Prev" onClick={handlePrevNextClick} disabled={disablePrev}>Prev</button>
-            <button className="btn btn-primary btn-grow" value="Next" onClick={handlePrevNextClick} disabled={disableNext}>Next</button>
+            <button className="btn btn-grow" value="Prev" onClick={handlePrevNextClick} disabled={disablePrev}>Prev</button>
+            <button className="btn btn-grow" value="Next" onClick={handlePrevNextClick} disabled={disableNext}>Next</button>
           </div>
         </div>
       </div>

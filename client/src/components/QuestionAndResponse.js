@@ -15,8 +15,7 @@ function QuestionAndResponse({ questionObject, onAddAnswer, hasAnswered, setHasA
         if (answerChoices !== undefined) {
             if (answerChoices === null) {
                 return (<>
-                    Response:
-                    <input type="text" name="response" placeholder="Please, write your answer here" onChange = { handleChange } required/>
+                    <textarea class="form-control text-area" placeholder="Please, write your answer here" onChange = { handleChange } required></textarea>
                 </>);
             } else {
                 const answerChoicesArray = answerChoices.split("|");
@@ -32,7 +31,7 @@ function QuestionAndResponse({ questionObject, onAddAnswer, hasAnswered, setHasA
                         /> { answerChoice } 
                     </div>
                 );
-                return <div onChange = { handleChange } className="text"> { radioButtons } </div>;
+                return <div onChange = { handleChange } className="text" style = {{margin: "10px 0 20px 0"}}> { radioButtons } </div>;
             }
         }
     }
@@ -63,9 +62,9 @@ function QuestionAndResponse({ questionObject, onAddAnswer, hasAnswered, setHasA
 
     return (<>
         <div id="question" className="text">QUESTION: { questionObject.question }</div> 
-        <form onSubmit = { handleSubmit } >
+        <form onSubmit = { handleSubmit } id = "answer-response">
             { answerReponse() }
-            <button type="submit" className="btn btn-primary" disabled = { hasAnswered }> Submit Your Answer </button>
+            <button type="submit" className="btn" disabled = { hasAnswered }> Submit Your Answer </button>
         </form>
     </>);
 }
