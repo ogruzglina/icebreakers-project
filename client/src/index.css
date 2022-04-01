@@ -9,6 +9,7 @@ body {
   background-color: #025E73;
   height: 100vh;
   overflow: hidden;
+  font-size: 18px;
 }
 
 code {
@@ -21,7 +22,7 @@ div {
 }
 
 #homepage-container {
-  margin: 10px 0;
+  margin: 50px 0;
   display: flex;
   justify-content: space-around;
 }
@@ -34,15 +35,21 @@ div {
   margin: 10px 0;
   padding: 1.1em;
   border-radius: .75em;
+  width: 785px;
+  color: #262312;
   -webkit-filter: drop-shadow(1px 2px 5px rgba(0,0,0,.3));
   filter: drop-shadow(1px 2px 5px rgba(0,0,0,.3));
-  box-shadow: 
+  /* box-shadow: 
     0 2px 2px rgba(3, 120, 166,.5),
     0 0px 5px rgba(3, 120, 166,.15),
     0 0px 4px rgba(0,0,0,.35),
     0 5px 20px rgba(3, 120, 166,.25),
     0 15px 50px rgba(3, 120, 166,.75),
-    inset 0 0 15px rgba(255,255,255,.05);
+    inset 0 0 15px rgba(255,255,255,.05); */
+    box-shadow: 0 0 5px #025E73,
+              0 0 15px #025E73,
+              0 0 20px #52D9CB,
+              0 0 25px #52D9CB;
 }
 
 #question {
@@ -50,8 +57,7 @@ div {
 }
 
 #answer-response {
-  margin: 10px 0;
-  border: solid 1px #000;
+  /* margin: 10px 0; */
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -63,17 +69,29 @@ div {
   align-self: start;
   flex-direction: column;
 }
+.text-area {
+  margin-bottom: 20px;
+  width: 760px;
+  /* height: 170px; */
+  font-size: 18px;
+  font-family: "Chalkduster";
+}
 
+textarea.form-control {
+  height: 85px;
+}
 .text-for-login-signup {
   text-align: center;
   color: navy;
   font-size: 18px;
 }
 
-.btn { font-family: "Andale Mono", Optima, sans-serif;
+.btn { 
+  font-family: "Andale Mono", Optima, sans-serif;
   font-size:18px;
   color: rgb(0, 0, 95);
   border: 1px solid #025E73;
+  background-color: #0bc2f0;
 }
 
 .login-signup {
@@ -126,9 +144,10 @@ div {
   transition: 0.2s ease-out;
 }
   .submit:hover, .submit:focus {
-    background: #025E73;
-    color: #52D9CB;
-    border: 1px solid #025E73;
+    background: #0bc2f0;
+    /* #0378A6; */
+    color: navy;
+    border: 1px solid #0bc2f0;
     outline: 0;
   }
 
@@ -145,10 +164,27 @@ div {
   flex-grow: 1;
 }
 
-.text-color {
-  color: #fff;
+.text {
+  color: #52D9CB;
+  font-size: 20px;
+  margin-bottom: 10px;
+  font-family: "Monaco"; 
+}
+.form-check-input {
+  margin-bottom: 5px;
 }
 
+#answers {
+  font-family: "Chalkduster";
+  font-size:20px;
+  color: white;
+}
+
+.ans-input {
+  font-family: "Andale Mono";
+  color: white;
+  font-size:18px;
+}
 label {
   color: #fff;
   padding: 0.5em;

@@ -15,14 +15,15 @@ function QuestionAndResponse({ questionObject, onAddAnswer, hasAnswered, setHasA
         if (answerChoices !== undefined) {
             if (answerChoices === null) {
                 return (<>
-                    Response:
-                    <input type="text" name="response" placeholder="Please, write your answer here" onChange = { handleChange } required/>
+                    <textarea class="form-control text-area" placeholder="Please, write your answer here" onChange = { handleChange } required></textarea>
                 </>);
             } else {
                 const answerChoicesArray = answerChoices.split("|");
                 const radioButtons = answerChoicesArray.map( answerChoice =>
-                    <div key = { answerChoice } >                     
+                    <div key = { answerChoice } className = "form-check ans-input " >                     
                         <input  
+                            id="flexRadioDisabled"
+                            className = "form-check-input"
                             type = "radio" 
                             name = "answer-choice" 
                             value = { answerChoice } 
@@ -30,7 +31,7 @@ function QuestionAndResponse({ questionObject, onAddAnswer, hasAnswered, setHasA
                         /> { answerChoice } 
                     </div>
                 );
-                return <div onChange = { handleChange } className="text-color"> { radioButtons } </div>;
+                return <div onChange = { handleChange } className="text" style = {{margin: "10px 0 20px 0"}}> { radioButtons } </div>;
             }
         }
     }
@@ -60,10 +61,10 @@ function QuestionAndResponse({ questionObject, onAddAnswer, hasAnswered, setHasA
     }
 
     return (<>
-        <div id="question" className="text-color">Question: { questionObject.question }</div> 
-        <form onSubmit = { handleSubmit } >
+        <div id="question" className="text">QUESTION: { questionObject.question }</div> 
+        <form onSubmit = { handleSubmit } id = "answer-response">
             { answerReponse() }
-            { hasAnswered ? null : <button type="submit" className="btn btn-primary"> Submit Your Answer </button> }
+            <button type="submit" className="btn" disabled = { hasAnswered }> Submit Your Answer </button>
         </form>
     </>);
 }
