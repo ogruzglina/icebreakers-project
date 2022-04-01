@@ -1,26 +1,24 @@
 import { useState } from "react";
 import LoginForm from "../components/LoginForm";
 import SignUpForm from "../components/SignUpForm";
-// import logo from "../images/logo.png"
+ import team from "../images/team.png"
 
 function Login({ onLogin }) {
   const [showLogin, setShowLogin] = useState(true);
 
   return (
     <>
-    {/* <div >
-      <h1>Welcome</h1>
-      <h2>to</h2>
-      <img src={logo} alt="logo" width="70%" />
-    </div> */}
+      <div class="text-center">
+        <img src={team} alt="team" width="28%" />
+      </div>
       {showLogin ? (
         <>
           <LoginForm onLogin={onLogin} />
           <br />
-          <p id = "text-for-signup">
+          <p className = "text-for-login-signup">
             Don't have an account? &nbsp;
             <button type="button" class="btn btn-secondary" color="secondary" onClick={() => setShowLogin(false)}>
-              Sign Up
+              SIGN UP
             </button>
           </p>
         </>
@@ -28,10 +26,10 @@ function Login({ onLogin }) {
         <>
           <SignUpForm onLogin={onLogin} />
           <br />
-          <p id = "text-for-signup">
+          <p className = "text-for-login-signup">
             Already have an account? &nbsp;
             <button type="button" class="btn btn-secondary" color="secondary" onClick={() => setShowLogin(true)}>
-              Log In
+              LOG IN
             </button>
           </p>
         </>
