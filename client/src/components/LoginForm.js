@@ -9,8 +9,6 @@ function LoginForm({ onLogin }){
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
     const [isLoading, setIsLoading] = useState(false);
-  
-    // const history = useHistory();
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -24,13 +22,11 @@ function LoginForm({ onLogin }){
             if (res.ok) {
                 res.json().then((user) => {
                     onLogin(user)
-                    // history.push("/account")
                 });
             } else {
                 res.json().then((error) => {
                     console.log(error.error.login)
                     setError(error.error.login)
-                    // alert(error.errors)
                 });
             }
         });
@@ -39,35 +35,30 @@ function LoginForm({ onLogin }){
     return(
         <form onSubmit = { handleSubmit } className = "login">
             <div className="form-fields">
-                {/* <label htmlFor="username">Username</label> */}
-                <input className="input"
+                <input className="input form-control" 
+                    style = {{marginBottom: "10px"}}
                     type="text" 
                     id="username"
                     autoComplete="off"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
-                    placeholder="username"
+                    placeholder="Username"
                 />
-                {/* <label htmlFor="password">Password</label> */}
-                <input className="input"
+                <input className="input form-control"
                     type="password"
                     id="password"
                     autoComplete="off"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    placeholder="password"
+                    placeholder="Password"
                 />
+                <h4 style = {{ color: "red" }}>{ error }</h4>
             </div>
-            <button className = "submit" variant="fill" color="primary" type="submit">
-            {isLoading ? "Loading..." : "Login"}
-            </button>
-            <h3 style = {{ color: "red"}}>{ error }</h3>
+            <button className = "submit" variant="fill"  type="submit">
+                {isLoading ? "Loading..." : "Login"}
+            </button>            
         </form>
-        // </div>
-        // <div>
-        //     <Link to="/create-account">Create an Account</Link>
-        // </div>
-        // </React.Fragment>
+        
     ); 
 
 }
