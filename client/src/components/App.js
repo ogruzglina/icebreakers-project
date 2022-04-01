@@ -4,6 +4,7 @@ import Homepage from './Homepage';
 import NavBar from './NavBar';
 import Profile from './Profile';
 import Login from '../pages/Login';
+import icecube from '../images/icebreaker.png';
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
@@ -32,6 +33,14 @@ function App() {
             <Homepage currentUser = { currentUser }/>
           </Route>
         </Switch>
+      <img src={icecube} alt="ice cube" className="cube" />
+      <img src={icecube} alt="ice cube" className="cube" />
+      <img src={icecube} alt="ice cube" className="cube" />
+      <img src={icecube} alt="ice cube" className="cube" />
+      <img src={icecube} alt="ice cube" className="cube" />
+      <img src={icecube} alt="ice cube" className="cube" />
+      <img src={icecube} alt="ice cube" className="cube" />
+      <img src={icecube} alt="ice cube" className="cube" />
       </main>
     </>
   );
