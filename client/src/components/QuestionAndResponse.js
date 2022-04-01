@@ -30,7 +30,7 @@ function QuestionAndResponse({ questionObject, onAddAnswer, hasAnswered, setHasA
                         /> { answerChoice } 
                     </div>
                 );
-                return <div onChange = { handleChange }> { radioButtons } </div>;
+                return <div onChange = { handleChange } className="text-color"> { radioButtons } </div>;
             }
         }
     }
@@ -60,10 +60,10 @@ function QuestionAndResponse({ questionObject, onAddAnswer, hasAnswered, setHasA
     }
 
     return (<>
-        <div id="question">Question: { questionObject.question }</div> 
+        <div id="question" className="text-color">Question: { questionObject.question }</div> 
         <form onSubmit = { handleSubmit } >
             { answerReponse() }
-            { hasAnswered ? null : <button type="submit"> Submit Your Answer </button> }
+            { hasAnswered ? null : <button type="submit" className="btn btn-primary"> Submit Your Answer </button> }
         </form>
     </>);
 }

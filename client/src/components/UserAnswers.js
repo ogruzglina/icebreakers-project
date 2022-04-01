@@ -19,16 +19,16 @@ function UserAnswers({ uAnswers, errorFound, hasAnswered }) {
                     </div>
                 );
                 return (<>
-                    <h2>All answers for this question:</h2>
+                    <h2 className="text-center">All Answers for this Question:</h2>
                         { answers } 
                 </>);
             } else {
-                return ( <h4>You will only see the answers after you submit yours!</h4> );
+                return ( <h4>You will only see your peers' answers after you submit your own!</h4> );
             }
         } else 
             return null;
     }    
-    return ( <div> { showAllAnswers() } </div> );
+  return ( <div className="center-block text-color" style={{width: "40%"}}> { showAllAnswers() } </div> );
 }
 
 export default UserAnswers

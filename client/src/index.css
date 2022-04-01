@@ -6,6 +6,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #e5e6df; /*#F6E4DA;*/
+/*   background-color: #025E73; */
+  height: 100vh;
+  overflow: hidden;
 }
 
 code {
@@ -13,28 +16,46 @@ code {
     monospace;
 }
 
+div {
+  margin: 0;
+}
+
 #homepage-container {
   margin: 10px 0;
-  border: solid 1px #000;
+  /* border: solid 1px #000; */
 
   display: flex;
   justify-content: space-around;
 }
 
 #question-and-response {
-  margin: 10px 0;
-  border: solid 1px #000;
+  /* margin: 10px 0; */
+  /* border: solid 1px #000; */
 
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   /* max-width: 200px; */
-}
+
+  /* color: rgba(255,255,255); */
+  margin: 10px 0;
+  padding: 1.1em;
+  /* background: #292942; */
+  border-radius: .75em;
+  -webkit-filter: drop-shadow(1px 2px 5px rgba(0,0,0,.3));
+  filter: drop-shadow(1px 2px 5px rgba(0,0,0,.3));
+  box-shadow: 
+    0 2px 2px rgba(3, 120, 166,.5),
+    0 0px 5px rgba(3, 120, 166,.15),
+    0 0px 4px rgba(0,0,0,.35),
+    0 5px 20px rgba(3, 120, 166,.25),
+    0 15px 50px rgba(3, 120, 166,.75),
+    inset 0 0 15px rgba(255,255,255,.05);
+  }
 
 #question {
-  /* margin: 10px 0; */
-  border: solid 1px #000;
+  font-weight: bold;
 }
 
 #answer-response {
@@ -98,3 +119,89 @@ code {
     outline: 0;
   }
 
+.date-button-container {
+  display: flex;
+  align-items: flex-end;
+}
+
+.btn-grow {
+  flex-grow: 1;
+}
+
+.text-color {
+  color: #fff;
+}
+
+label {
+  color: #fff;
+  padding: 0.5em;
+}
+
+.cube {
+  position: absolute;
+  top: 80vh;
+  left: 45vw;
+  width: 10px;
+  height: 10px;
+  border: solid 1px darken(#0040C1, 8%);
+  transform-origin: top left;
+  transform: scale(0) rotate(0deg) translate(-50%, -50%);
+  animation: cube 12s ease-in forwards infinite;  
+}
+
+img:nth-child(2n) {
+  border-color: lighten(#0040C1, 10%);
+}
+  
+img:nth-child(2) {
+  animation-delay: 2s;
+  left: 25vw;
+  top: 40vh;
+}
+
+img:nth-child(3) {
+  animation-delay: 4s;
+  left: 75vw;
+  top: 50vh;
+}
+
+img:nth-child(4) {
+  animation-delay: 6s;
+  left: 90vw;
+  top: 10vh;
+}
+
+img:nth-child(5) {
+  animation-delay: 8s;
+  left: 10vw;
+  top: 85vh;
+}
+
+img:nth-child(6) {
+  animation-delay: 10s;
+  left: 50vw;
+  top: 10vh;
+}
+
+img:nth-child(7) {
+  animation-delay: 5s;
+  left: 80vw;
+  top: 75vh;
+}
+
+img:nth-child(8) {
+  animation-delay: 7s;
+  left: 15vw;
+  top: 20vh;
+}
+
+@keyframes cube {
+  from {
+    transform: scale(0) rotate(0deg) translate(-50%, -50%);   
+    opacity: 1;
+  }
+  to {
+    transform: scale(20) rotate(960deg) translate(-50%, -50%); 
+    opacity: 0;
+  }
+}
