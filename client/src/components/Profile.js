@@ -45,68 +45,88 @@ function Profile({ currentUser, setCurrentUser }) {
 
   return (
     <div className="user-account">
-      <form className="user-profile text-center" onSubmit={handleSaveChangesClick}>
+      <form className="user-profile text-center" onSubmit={handleSaveChangesClick} style = {{ marginTop: "150px" }}>
         <div>
-          <h2 className="text-color">Update Your Profile</h2>
+          <h2 className="text" style = {{ marginBottom: "30px" }}>Update Your Profile</h2>
         </div>
-        <div>
-          <label>First Name</label>
-          <input
-          type="text"
-          id="first-name"
-          value={firstName}
-          onChange={(e) => setFirstName(e.target.value)}
-          />
+        <div className="profile">
+        <div className = "profile-input">
+          <div><label>First Name</label></div>
+          <div>
+            <input
+            className="input form-control"
+            type="text"
+            id="first-name"
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+            style = {{width: "400px"}}
+          /></div>
         </div>
-        <div>
-          <label>Last Name</label>
-          <input
-          type="text"
-          id="last-name"
-          autoComplete="off"
-          value={lastName}
-          onChange={(e) => setLastName(e.target.value)}
-          />
+        <div className = "profile-input">
+          <div><label>Last Name</label> </div>
+          <div>
+            <input
+              className="input form-control"
+              type="text"
+              id="last-name"
+              autoComplete="off"
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
+              style = {{width: "400px"}}
+            /> </div>
         </div>
-        <div>
-          <label>Profile Picture URL</label>
-          <input
-          type="text"
-          id="last-name"
-          autoComplete="off"
-          value={avatarUrl}
-          onChange={(e) => setAvatarUrl(e.target.value)}
-          />
+        <div className = "profile-input">
+          <div><label>Profile Picture URL</label> </div>
+          <div>
+            <input
+              className="input form-control"
+              type="text"
+              id="last-name"
+              autoComplete="off"
+              value={avatarUrl}
+              onChange={(e) => setAvatarUrl(e.target.value)}
+              style = {{width: "400px"}}
+            /> </div>
         </div>
-        <div>
-          <label>Hometown</label>
-          <input
-          type="text"
-          id="last-name"
-          autoComplete="off"
-          value={hometown}
-          onChange={(e) => setHometown(e.target.value)}
-          />
+        <div className = "profile-input">
+          <div><label>Hometown</label> </div>
+          <div>
+            <input
+              className="input form-control"
+              type="text"
+              id="last-name"
+              autoComplete="off"
+              value={hometown}
+              onChange={(e) => setHometown(e.target.value)}
+              style = {{width: "400px"}}
+            /> </div>
         </div>
-        <div>
-          <label>Birthday</label>
-          <input
-          type="text"
-          id="last-name"
-          autoComplete="off"
-          value={birthdate}
-          onChange={(e) => setBirthdate(e.target.value)}
-          />
+        <div className = "profile-input">
+          <div><label>Birthday</label> </div>
+          <div>
+            <input
+              style = {{width: "400px"}}
+              className="input form-control"
+              type="text"
+              id="last-name"
+              autoComplete="off"
+              value={birthdate}
+              onChange={(e) => setBirthdate(e.target.value)}
+            /> </div>
         </div>
-        <div>
-          <label>Email</label>
-          <input
-          type="text"
-          id="last-name"
-          autoComplete="off"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          />
+        <div className = "profile-input">
+          <div className = "p-i-div"><label>Email</label> </div>
+          <div className = "p-i-div" >
+            <input
+              className="input form-control"
+              type="text"
+              id="last-name"
+              autoComplete="off"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              style = {{width: "400px"}}
+            /> </div>
+        </div>
         </div>
         <button type="submit">{isLoading ? "Loading..." : "Save Changes"}</button>
       </form>

@@ -189,6 +189,22 @@ label {
   color: #fff;
   padding: 0.5em;
 }
+.profile-input {
+  display: flex;
+  flex-direction: row;
+  width: 600px;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.profile {
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+}
+
+.p-i-div {
+  display: flex;
+}
 
 .cube {
   position: absolute;
@@ -198,7 +214,7 @@ label {
   height: 10px;
   border: solid 1px darken(#0040C1, 8%);
   transform-origin: top left;
-  transform: scale(0) rotate(0deg) translate(-50%, -50%);
+  transform: scale(0) rotate(0deg) translate(-70%, -70%);
   animation: cube 12s ease-in forwards infinite;  
 }
 
