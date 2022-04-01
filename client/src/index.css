@@ -54,8 +54,7 @@ div {
   }
 
 #question {
-  /* margin: 10px 0; */
-  /* border: solid 1px #000; */
+  font-weight: bold;
 }
 
 #answer-response {
